@@ -1,0 +1,40 @@
+
+# Simple counting experiment, with one signal and a few background processes 
+imax 1  number of channels
+jmax 6  number of backgrounds
+kmax *  number of nuisance parameters (sources of systematical uncertainties)
+------------
+shapes anomalousCoupling_bkg1_m3Lmet1250  m3Lmet1250 ./m3Lmet1250_ws.root proc_m3Lmet1250:$PROCESS proc_m3Lmet1250:$PROCESS_$SYSTEMATIC
+shapes anomalousCoupling_bkg2_m3Lmet1250  m3Lmet1250 ./m3Lmet1250_ws.root proc_m3Lmet1250:$PROCESS proc_m3Lmet1250:$PROCESS_$SYSTEMATIC
+shapes anomalousCoupling_bkg3_m3Lmet1250  m3Lmet1250 ./m3Lmet1250_ws.root proc_m3Lmet1250:$PROCESS proc_m3Lmet1250:$PROCESS_$SYSTEMATIC
+shapes anomalousCoupling_bkg4_m3Lmet1250  m3Lmet1250 ./m3Lmet1250_ws.root proc_m3Lmet1250:$PROCESS proc_m3Lmet1250:$PROCESS_$SYSTEMATIC
+shapes anomalousCoupling_bkg5_m3Lmet1250  m3Lmet1250 ./m3Lmet1250_ws.root proc_m3Lmet1250:$PROCESS proc_m3Lmet1250:$PROCESS_$SYSTEMATIC
+shapes anomalousCoupling_bkg6_m3Lmet1250  m3Lmet1250 ./m3Lmet1250_ws.root proc_m3Lmet1250:$PROCESS proc_m3Lmet1250:$PROCESS_$SYSTEMATIC
+shapes data_obs                m3Lmet1250 ./m3Lmet1250_ws.root proc_m3Lmet1250:$PROCESS    
+shapes anoCoupl_process_m3Lmet1250 m3Lmet1250 ./m3Lmet1250_ws.root proc_m3Lmet1250:ATGCPdf_$PROCESS proc_m3Lmet1250:ATGCPdf_$PROCESS_$SYSTEMATIC    
+------------
+bin m3Lmet1250 
+observation 3831.0
+------------
+bin                         m3Lmet1250					m3Lmet1250			m3Lmet1250			m3Lmet1250			m3Lmet1250			m3Lmet1250			m3Lmet1250       
+process			    anoCoupl_process_m3Lmet1250    	anomalousCoupling_bkg1_m3Lmet1250	anomalousCoupling_bkg2_m3Lmet1250	anomalousCoupling_bkg3_m3Lmet1250	anomalousCoupling_bkg4_m3Lmet1250	anomalousCoupling_bkg5_m3Lmet1250	anomalousCoupling_bkg6_m3Lmet1250       
+process                     0	  	       				1 				2 				3 				4 				5 				6       
+rate                        3206.78131187	 			155.219451833 			296.621795706 			54.3125809754 			63.6061397307 			43.4640443141 			31.0534152348           
+------------
+
+lumi_ML         lnN  1.026      				-				1.026				1.026				1.026				1.026				1.026
+trigeff_ML         lnN  1.015      				-				1.015				1.015				1.015				1.015				1.015
+normZZH_ML         lnN  -      				-				1.07				-				-				-				-
+convs_ML         lnN  -      				-				-				1.20				-				-				-
+normTTX_ML         lnN  -      				-				-				-				1.15				-				-
+normtZq_ML         lnN  -      				-				-				-				-				-				1.35
+fakes_ML         lnN  -      				1.30				-				-				-				-				-
+normVVV_ML         lnN  -      				-				-				-				-				1.50				-
+fakes_appldata_ewkfakes_ML shape1  -				1.0 				-				-				-				-				-
+LepSFEl        shape1  1.0          				-				1.0				1.0				1.0				1.0				1.0
+LepSFMu        shape1  1.0          				-				1.0				1.0				1.0				1.0				1.0
+JES        shape1  1.0          				-				1.0				1.0				1.0				1.0				1.0
+PUW        shape1  1.0          				-				1.0				1.0				1.0				1.0				1.0
+btag_HF        shape1  1.0          				-				1.0				1.0				1.0				1.0				1.0
+btag_LF        shape1  1.0          				-				1.0				1.0				1.0				1.0				1.0
+rWZ rateParam * anoCoupl_process_m3Lmet1250 1

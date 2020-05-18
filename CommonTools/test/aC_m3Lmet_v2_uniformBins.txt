@@ -1,0 +1,39 @@
+
+# Simple counting experiment, with one signal and a few background processes 
+imax 1  number of channels
+jmax 6  number of backgrounds
+kmax *  number of nuisance parameters (sources of systematical uncertainties)
+------------
+shapes anomalousCoupling_bkg1_m3Lmet_v2_uniformBins  m3Lmet_v2_uniformBins ./m3Lmet_v2_uniformBins_ws.root proc_m3Lmet_v2_uniformBins:$PROCESS proc_m3Lmet_v2_uniformBins:$PROCESS_$SYSTEMATIC
+shapes anomalousCoupling_bkg2_m3Lmet_v2_uniformBins  m3Lmet_v2_uniformBins ./m3Lmet_v2_uniformBins_ws.root proc_m3Lmet_v2_uniformBins:$PROCESS proc_m3Lmet_v2_uniformBins:$PROCESS_$SYSTEMATIC
+shapes anomalousCoupling_bkg3_m3Lmet_v2_uniformBins  m3Lmet_v2_uniformBins ./m3Lmet_v2_uniformBins_ws.root proc_m3Lmet_v2_uniformBins:$PROCESS proc_m3Lmet_v2_uniformBins:$PROCESS_$SYSTEMATIC
+shapes anomalousCoupling_bkg4_m3Lmet_v2_uniformBins  m3Lmet_v2_uniformBins ./m3Lmet_v2_uniformBins_ws.root proc_m3Lmet_v2_uniformBins:$PROCESS proc_m3Lmet_v2_uniformBins:$PROCESS_$SYSTEMATIC
+shapes anomalousCoupling_bkg5_m3Lmet_v2_uniformBins  m3Lmet_v2_uniformBins ./m3Lmet_v2_uniformBins_ws.root proc_m3Lmet_v2_uniformBins:$PROCESS proc_m3Lmet_v2_uniformBins:$PROCESS_$SYSTEMATIC
+shapes anomalousCoupling_bkg6_m3Lmet_v2_uniformBins  m3Lmet_v2_uniformBins ./m3Lmet_v2_uniformBins_ws.root proc_m3Lmet_v2_uniformBins:$PROCESS proc_m3Lmet_v2_uniformBins:$PROCESS_$SYSTEMATIC
+shapes data_obs                m3Lmet_v2_uniformBins ./m3Lmet_v2_uniformBins_ws.root proc_m3Lmet_v2_uniformBins:$PROCESS    
+shapes anoCoupl_process_m3Lmet_v2_uniformBins m3Lmet_v2_uniformBins ./m3Lmet_v2_uniformBins_ws.root proc_m3Lmet_v2_uniformBins:ATGCPdf_$PROCESS proc_m3Lmet_v2_uniformBins:ATGCPdf_$PROCESS_$SYSTEMATIC    
+------------
+bin m3Lmet_v2_uniformBins 
+observation 364315.85295
+------------
+bin                         m3Lmet_v2_uniformBins					m3Lmet_v2_uniformBins			m3Lmet_v2_uniformBins			m3Lmet_v2_uniformBins			m3Lmet_v2_uniformBins			m3Lmet_v2_uniformBins			m3Lmet_v2_uniformBins       
+process			    anoCoupl_process_m3Lmet_v2_uniformBins    	anomalousCoupling_bkg1_m3Lmet_v2_uniformBins	anomalousCoupling_bkg2_m3Lmet_v2_uniformBins	anomalousCoupling_bkg3_m3Lmet_v2_uniformBins	anomalousCoupling_bkg4_m3Lmet_v2_uniformBins	anomalousCoupling_bkg5_m3Lmet_v2_uniformBins	anomalousCoupling_bkg6_m3Lmet_v2_uniformBins       
+process                     0	  	       				1 				2 				3 				4 				5 				6       
+rate                        2845.02009791	 			163.767523448 			296.334321249 			55.1507951422 			63.5123881233 			43.4887787742 			31.0552490542           
+------------
+
+lumi_ML         lnN  1.026      				-				1.026				1.026				1.026				1.026				1.026
+trigeff_ML         lnN  1.015      				-				1.015				1.015				1.015				1.015				1.015
+normZZH_ML         lnN  -      				-				1.07				-				-				-				-
+convs_ML         lnN  -      				-				-				1.20				-				-				-
+normTTX_ML         lnN  -      				-				-				-				1.15				-				-
+normtZq_ML         lnN  -      				-				-				-				-				-				1.35
+fakes_ML         lnN  -      				1.30				-				-				-				-				-
+normVVV_ML         lnN  -      				-				-				-				-				1.50				-
+fakes_appldata_ewkfakes_ML shape1  -				1.0 				-				-				-				-				-
+LepSFEl        shape1  1.0          				-				1.0				1.0				1.0				1.0				1.0
+LepSFMu        shape1  1.0          				-				1.0				1.0				1.0				1.0				1.0
+JES        shape1  1.0          				-				1.0				1.0				1.0				1.0				1.0
+PUW        shape1  1.0          				-				1.0				1.0				1.0				1.0				1.0
+btag_HF        shape1  1.0          				-				1.0				1.0				1.0				1.0				1.0
+btag_LF        shape1  1.0          				-				1.0				1.0				1.0				1.0				1.0

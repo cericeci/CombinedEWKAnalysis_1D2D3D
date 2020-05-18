@@ -1,0 +1,42 @@
+
+# Simple counting experiment, with one signal and a few background processes 
+imax 1  number of channels
+jmax 6  number of backgrounds
+kmax *  number of nuisance parameters (sources of systematical uncertainties)
+------------
+shapes anomalousCoupling_bkg1_m3Lmet2018  m3Lmet2018 ./m3Lmet2018_ws.root proc_m3Lmet2018:$PROCESS proc_m3Lmet2018:$PROCESS_$SYSTEMATIC
+shapes anomalousCoupling_bkg2_m3Lmet2018  m3Lmet2018 ./m3Lmet2018_ws.root proc_m3Lmet2018:$PROCESS proc_m3Lmet2018:$PROCESS_$SYSTEMATIC
+shapes anomalousCoupling_bkg3_m3Lmet2018  m3Lmet2018 ./m3Lmet2018_ws.root proc_m3Lmet2018:$PROCESS proc_m3Lmet2018:$PROCESS_$SYSTEMATIC
+shapes anomalousCoupling_bkg4_m3Lmet2018  m3Lmet2018 ./m3Lmet2018_ws.root proc_m3Lmet2018:$PROCESS proc_m3Lmet2018:$PROCESS_$SYSTEMATIC
+shapes anomalousCoupling_bkg5_m3Lmet2018  m3Lmet2018 ./m3Lmet2018_ws.root proc_m3Lmet2018:$PROCESS proc_m3Lmet2018:$PROCESS_$SYSTEMATIC
+shapes anomalousCoupling_bkg6_m3Lmet2018  m3Lmet2018 ./m3Lmet2018_ws.root proc_m3Lmet2018:$PROCESS proc_m3Lmet2018:$PROCESS_$SYSTEMATIC
+shapes data_obs                m3Lmet2018 ./m3Lmet2018_ws.root proc_m3Lmet2018:$PROCESS    
+shapes anoCoupl_process_m3Lmet2018 m3Lmet2018 ./m3Lmet2018_ws.root proc_m3Lmet2018:ATGCPdf_$PROCESS proc_m3Lmet2018:ATGCPdf_$PROCESS_$SYSTEMATIC    
+------------
+bin m3Lmet2018 
+observation 4185.0
+------------
+bin                         m3Lmet2018					m3Lmet2018			m3Lmet2018			m3Lmet2018			m3Lmet2018			m3Lmet2018			m3Lmet2018       
+process			    anoCoupl_process_m3Lmet2018    	anomalousCoupling_bkg1_m3Lmet2018	anomalousCoupling_bkg2_m3Lmet2018	anomalousCoupling_bkg3_m3Lmet2018	anomalousCoupling_bkg4_m3Lmet2018	anomalousCoupling_bkg5_m3Lmet2018	anomalousCoupling_bkg6_m3Lmet2018       
+process                     0	  	       				1 				2 				3 				4 				5 				6       
+rate                        3429.82622832	 			50.5148606405 			211.558232299 			242.466597163 			86.2111121463 			45.7890303141 			27.0274221816           
+------------
+
+trigeffbias_ML         lnN  1.003      				-				1.003				1.003				1.003				1.003				1.003
+normZZ_ML         lnN  -      				-				1.07				-				-				-				-
+convs_ML         lnN  -      				-				-				1.20				-				-				-
+normTTX_ML         lnN  -      				-				-				-				1.15				-				-
+fakes_ML         lnN  -      				1.50				-				-				-				-				-
+normVVV_ML         lnN  -      				-				-				-				-				1.50				-
+normVH_ML         lnN  -      				-				-				-				-				-				1.25
+lumi_2018_ML         lnN  1.025      				-				1.025				1.025				1.025				1.025				1.025
+trieffstat_2018_ML         lnN  1.013      				-				1.013				1.013				1.013				1.013				1.013
+prompt_VH_LepSFMu_ML shape1  -				-				-				-				-				-				1.0 
+LepSFEl        shape1  1.0          				-				1.0				1.0				1.0				1.0				1.0
+LepSFMu        shape1  1.0          				-				1.0				1.0				1.0				1.0				-
+JES        shape1  1.0          				-				1.0				1.0				1.0				1.0				1.0
+PUW        shape1  1.0          				-				1.0				1.0				1.0				1.0				1.0
+btag_HF        shape1  1.0          				-				1.0				1.0				1.0				1.0				1.0
+btag_LF        shape1  1.0          				-				1.0				1.0				1.0				1.0				1.0
+ElScale        shape1  1.0          				-				1.0				1.0				1.0				1.0				1.0
+MuScale        shape1  1.0          				-				1.0				1.0				1.0				1.0				1.0
