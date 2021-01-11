@@ -166,7 +166,7 @@ for section in fit_sections:
     background = []
 
     for i in range(0,Nbkg_int):
-        background.append(f.Get(bkg_name[i]))
+        background.append(f.Get("x_"+bkg_name[i]))
 
 
     background_shapeSyst = []
@@ -186,12 +186,12 @@ for section in fit_sections:
         background_backshapeUp.append([])
         background_backshapeDown.append([])
         for i in range(0,len(background_shapeSyst[j])):
-            background_backshapeUp[j].append(f.Get('%sUp'%background_shapeSyst[j][i]))
-            background_backshapeDown[j].append(f.Get('%sDown'%background_shapeSyst[j][i]))
+            background_backshapeUp[j].append(f.Get("x_"+'%sUp'%background_shapeSyst[j][i]))
+            background_backshapeDown[j].append(f.Get("x_"+'%sDown'%background_shapeSyst[j][i]))
 
 
-    data_obs = f.Get('data_obs')
-    diboson = f.Get('diboson')
+    data_obs = f.Get("x_"+'data_obs')
+    diboson = f.Get("x_"+'diboson')
 
     doSignalShape_unc=False
     doSignalBkg_corr_unc=False
@@ -210,8 +210,9 @@ for section in fit_sections:
         norm_sig_sm_down = {}
         signal_shapeSyst = [string(i) for i in cfg.get(codename,'signal_shape_syst').split(',')]
         for i in range(0,len(signal_shapeSyst)):
-            diboson_up[i] = f.Get('%sUp'%signal_shapeSyst[i])
-            diboson_down[i] = f.Get('%sDown'%signal_shapeSyst[i])
+            print signal_shapeSyst[i]
+            diboson_up[i] = f.Get("x_"+'%sUp'%signal_shapeSyst[i])
+            diboson_down[i] = f.Get("x_"+'%sDown'%signal_shapeSyst[i])
             norm_sig_sm_up[i] = diboson_up[i].Integral()
             norm_sig_sm_down[i] = diboson_down[i].Integral()
 
@@ -260,6 +261,7 @@ for section in fit_sections:
     norm_sig_sm = diboson.Integral()
     norm_bkg = []
     for i in range(0,Nbkg_int):
+        print "BKG: ", background[i]
         norm_bkg.append(background[i].Integral())
     norm_obs = data_obs.Integral()
     
@@ -314,7 +316,7 @@ for section in fit_sections:
             name_forCorr=background_shapeSyst[j][i]
             if (isItCorrelated(background_shapeSyst[j][i])):
                 name_forCorr=isItCorrelated_name(background_shapeSyst[j][i])
-            
+            print 'anomalousCoupling_bkg%i_%s_%sUp'%(j+1,codename,name_forCorr), 'anomalousCoupling_bkg%i_%s_%sUp'%(j+1,codename,name_forCorr),vars,background_backshapeUp[j][i]
             bkgHist_systUp[j].append(RooDataHist('anomalousCoupling_bkg%i_%s_%sUp'%(j+1,codename,name_forCorr),
                                                  'anomalousCoupling_bkg%i_%s_%sUp'%(j+1,codename,name_forCorr),
                                                  vars,

@@ -34,7 +34,7 @@ class AnomalousCouplingModel(PhysicsModel):
             for poi in self.pois:
                 print poi,self.anomCoupSearchWindows
                 
-                if po.startswith("range_%s"%poi):
+                if po.startswith("range_%s="%poi):
                     print " reading in range %s"%poi
                     self.anomCoupSearchWindows[poi] = po.replace\
                                                       ("range_%s="%poi,"").\
